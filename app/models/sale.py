@@ -1,0 +1,15 @@
+from pydantic import BaseModel, ConfigDict
+from typing import Optional
+from datetime import date
+
+class Sale(BaseModel):
+    sale_date: date
+    product_id: str
+    quantity: int   
+    total_value: float
+
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        arbitrary_types_allowed=True
+)
